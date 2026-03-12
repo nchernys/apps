@@ -2,7 +2,11 @@ import type { StorybookConfig } from '@storybook/react-vite';
 import { mergeConfig } from 'vite';
 import svgrPlugin from 'vite-plugin-svgr';
 import browser from '../mock/webextension-polyfill';
-import * as path from 'node:path';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const config: StorybookConfig = {
   stories: [
@@ -37,6 +41,7 @@ const config: StorybookConfig = {
       },
       resolve: {
         alias: {
+          path: 'path-browserify',
           '@growthbook/growthbook': path.resolve(__dirname, '../mock/gb.ts'),
           'node-fetch': path.resolve(__dirname, '../mock/node-fetch.ts'),
           'webextension-polyfill': path.resolve(

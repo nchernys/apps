@@ -42,6 +42,7 @@ export interface ItemInnerProps {
   active?: boolean;
 }
 interface NavItemProps {
+  item?: SidebarMenuItem;
   color?: string;
   active?: boolean;
   children?: ReactNode;
@@ -137,7 +138,7 @@ export const ItemInner = ({
 
 export const NavItem = forwardRef<HTMLElement, NavItemProps>(
   (
-    { className, color, active, children, disableDefaultBackground },
+    { item, className, color, active, children, disableDefaultBackground },
     ref,
   ): ReactElement => {
     const baseClasses = active
@@ -161,6 +162,7 @@ export const NavItem = forwardRef<HTMLElement, NavItemProps>(
           color || baseClasses,
           backgroundClasses,
         )}
+        title={item.title}
       >
         {children}
       </RawNavItem>

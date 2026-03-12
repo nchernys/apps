@@ -28,6 +28,7 @@ export const SidebarItem = ({
 
   const navItem = (
     <NavItem
+      item={item}
       active={isActive}
       ref={item.navItemRef}
       color={item.color}

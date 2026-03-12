@@ -51,6 +51,7 @@ export function Tooltip({
           asChild
           onMouseUp={(e) => e.currentTarget.blur()}
           {...(enableMobileClick && { onClick: () => setOpen(true) })}
+          onMouseUp={(e) => e.currentTarget.blur()}
         >
           {children}
         </RadixPrimitive.Trigger>

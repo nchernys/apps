@@ -16,6 +16,7 @@ export const SidebarMenuIcon = (): ReactElement => {
     });
     toggleSidebarExpanded();
   };
+
   return (
     <div
       className={classNames(

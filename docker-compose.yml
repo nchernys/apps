@@ -20,7 +20,7 @@ services:
       - "6379:6379"
 
   daily-postgres:
-    image: postgres:15.4-alpine
+    image: postgres:16-alpine
     healthcheck:
       test: pg_isready -U postgres -d $$POSTGRES_DB
       interval: 1s
@@ -45,8 +45,7 @@ services:
         condition: service_healthy
       daily-redis:
         condition: service_healthy
-    command:
-      ["npm", "run", "start"]
+    command: ["npm", "run", "start"]
     ports:
       - "5000:5000"
     volumes:
@@ -75,4 +74,7 @@ services:
       - NJORD_ORIGIN=http://njord-transactions-server
       - FREYJA_ORIGIN=http://freya-server
       - GONDUL_ORIGIN=http://host.docker.internal:9021
+      - GONDUL_OPPORTUNITY_SERVER_ORIGIN=http://host.docker.internal:9022
       - BROKKR_ORIGIN=http://brokkr-grpc:50051
+      - YGGDRASIL_SENTIMENT_ORIGIN=http://localhost:3002
+      - GEOIP_PATH=
