@@ -53,7 +53,7 @@ export function Section({
   };
 
   return (
-    <NavSection className={classNames('mt-1 relative h-auto', className)}>
+    <NavSection className={classNames('mt-1 pb-2 relative h-auto', className)}>
       {title && (
         <NavHeader className="relative h-auto laptop:flex">
           <div
